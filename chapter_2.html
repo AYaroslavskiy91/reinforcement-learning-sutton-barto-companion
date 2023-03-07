@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Yaroslavskiy">
+
+<title>Chapter 2 Select Solutions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="chapter_2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="chapter_2_files/libs/quarto-html/quarto.js"></script>
+<script src="chapter_2_files/libs/quarto-html/popper.min.js"></script>
+<script src="chapter_2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="chapter_2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="chapter_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="chapter_2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="chapter_2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="chapter_2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="chapter_2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#chapter-2" id="toc-chapter-2" class="nav-link active" data-scroll-target="#chapter-2"><span class="toc-section-number">1</span>  Chapter 2</a>
+  <ul class="collapse">
+  <li><a href="#multi-armed-bandits" id="toc-multi-armed-bandits" class="nav-link" data-scroll-target="#multi-armed-bandits"><span class="toc-section-number">1.1</span>  Multi-armed Bandits</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation"><span class="toc-section-number">1.2</span>  Notation</a></li>
+  <li><a href="#action-value-methods" id="toc-action-value-methods" class="nav-link" data-scroll-target="#action-value-methods"><span class="toc-section-number">1.3</span>  Action-value Methods</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">2</span>  Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2.1" id="toc-exercise-2.1" class="nav-link" data-scroll-target="#exercise-2.1"><span class="toc-section-number">2.1</span>  Exercise 2.1</a></li>
+  <li><a href="#exercise-2.2" id="toc-exercise-2.2" class="nav-link" data-scroll-target="#exercise-2.2"><span class="toc-section-number">2.2</span>  Exercise 2.2</a></li>
+  <li><a href="#exercise-2.3" id="toc-exercise-2.3" class="nav-link" data-scroll-target="#exercise-2.3"><span class="toc-section-number">2.3</span>  Exercise 2.3</a></li>
+  <li><a href="#exercise-2.4" id="toc-exercise-2.4" class="nav-link" data-scroll-target="#exercise-2.4"><span class="toc-section-number">2.4</span>  Exercise 2.4</a></li>
+  <li><a href="#exercise-2.5" id="toc-exercise-2.5" class="nav-link" data-scroll-target="#exercise-2.5"><span class="toc-section-number">2.5</span>  Exercise 2.5</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">3</span>  References</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Chapter 2 Select Solutions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Yaroslavskiy </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="chapter-2" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="chapter-2"><span class="header-section-number">1</span> Chapter 2</h2>
+<section id="multi-armed-bandits" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="multi-armed-bandits"><span class="header-section-number">1.1</span> Multi-armed Bandits</h3>
+<p>This chapter aims to discuss the fundamental RL problem, called the ‘Multi-armed Bandit’, a reference to a slot machine with multiple levers. The goal here is to discuss and examine techniques for solving the problem in which a fixed number of decisions at every time interval combine to a final reward, which we aim to maximize.</p>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#some imports, including a user-defined solver</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> GreedyAgent</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(GreedyAgent)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="notation" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="notation"><span class="header-section-number">1.2</span> Notation</h3>
+<p><span class="math inline">\(t\)</span> = time step.</p>
+<p><span class="math inline">\(A_t\)</span> = action selected at <span class="math inline">\(t\)</span>.</p>
+<p><span class="math inline">\(R_t\)</span> = reward at time <span class="math inline">\(t\)</span>.</p>
+<p><span class="math inline">\(q_*(a)\)</span> = expected reward of arbitrary action <span class="math inline">\(a\)</span>. Defined by: <span class="math display">\[ q_*(a) = \mathbb{E}[R_t|A_t =a ] \]</span></p>
+<p><span class="math inline">\(Q_t(a)\)</span> = estimated value of action <span class="math inline">\(a\)</span> at time <span class="math inline">\(t\)</span>.</p>
+</section>
+<section id="action-value-methods" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="action-value-methods"><span class="header-section-number">1.3</span> Action-value Methods</h3>
+<p>Since the value of each possible is action is not always (or ever) known at each time step <span class="math inline">\(t\)</span>, there is a need to find the best technique by which to estimate the rewards from actions, and thus to decide which actions to take. The collection of such estimations are called <em>action-value methods</em>.</p>
+<p>This simplest action selection rule is to select the action with the highest-observed value. This is called the greedy action, and this method can be summarized as</p>
+<p><span class="math display">\[ A_t = \text{argmax}_a Q_t(a).\]</span></p>
+<p>As an alternative, we define the <span class="math inline">\(\epsilon\)</span>-greedy method, which says that with some small probability <span class="math inline">\(\epsilon\)</span>, we choose an action from all available actions uniformally at random, and otherwise we act greedily. Following are a few problems from chapter 2 that explore the <span class="math inline">\(\epsilon\)</span>-greedy method.</p>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2</span> Exercises</h2>
+<section id="exercise-2.1" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="exercise-2.1"><span class="header-section-number">2.1</span> Exercise 2.1</h3>
+<p>In <span class="math inline">\(\epsilon\)</span>-greedy action selection, for the case of two actions and <span class="math inline">\(\epsilon=.5\)</span>, what is the probability that the greedy action is selected?</p>
+<section id="solution" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="solution"><span class="header-section-number">2.1.1</span> Solution</h4>
+<p>For this, we use law of total probablity. Let <span class="math inline">\(a_g\)</span> be the event that the greedy action is selected, and let <span class="math inline">\(a_\epsilon\)</span> be the event that the action is selected at random. Then <span class="math display">\[ P(a_g) = P(a_g|a_\epsilon)\cdot P(a_\epsilon) + P(a_g|a_\epsilon ')\cdot P(a_\epsilon')\]</span> <span class="math display">\[ = \frac{1}{2}\cdot\frac{1}{2}+1\cdot\frac{1}{2} = \frac14\]</span></p>
+</section>
+</section>
+<section id="exercise-2.2" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="exercise-2.2"><span class="header-section-number">2.2</span> Exercise 2.2</h3>
+<p>Consider a <span class="math inline">\(k\)</span>-armed bandit problem with <span class="math inline">\(k=4\)</span> actions, denoted 1,2,3,4. Consider applying an <span class="math inline">\(\epsilon\)</span>-greedy action selection, using sample-average action-value estimates, and initial estimates of <span class="math inline">\(Q_1(a) = 0\)</span> for all <span class="math inline">\(a\)</span>. Suppose an initial sequence of actions and rewards is given by:</p>
+<p><span class="math inline">\(A_1 = 1, R_1 = -1\)</span></p>
+<p><span class="math inline">\(A_2 = 2, R_2 = 1\)</span></p>
+<p><span class="math inline">\(A_3 = 2, R_3 = -2\)</span></p>
+<p><span class="math inline">\(A_4 = 2, R_4 = 2\)</span></p>
+<p><span class="math inline">\(A_5 = 3, R_5 = 0\)</span></p>
+<p>On which time steps did the <span class="math inline">\(\epsilon\)</span> case definitely occur? On which time steps could this have possible occurred?</p>
+<section id="solution-1" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="solution-1"><span class="header-section-number">2.2.1</span> Solution</h4>
+<p>Answering the second part first, the <span class="math inline">\(\epsilon\)</span> case could have occurred at every time step.</p>
+<p>There is no way to determine if it occurred at time step 1, since each action-value estimate is equal at 0 at that point.</p>
+<p>At time step 2, action 2 could have been a legal choice of the greedy algorithm, so again we cannot know which case occurred.</p>
+<p>At time step 3, action 2 is the most rewarding action thus far. It again could have been the result of either case.</p>
+<p>At time step 4, action 2 is now the second-least rewarding action, behind actions 3 and 4. Thus, we know for certain that the <span class="math inline">\(\epsilon\)</span> case occurred here.</p>
+<p>At time step 5, action 2 has returned to being the most rewarding action, with an expected payout of <span class="math inline">\(\frac13\)</span>. Thus, since action 3 was chosen, we know that the <span class="math inline">\(\epsilon\)</span> case occurred.</p>
+</section>
+</section>
+<section id="exercise-2.3" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="exercise-2.3"><span class="header-section-number">2.3</span> Exercise 2.3</h3>
+<p>In the comparison shown in Figure 2.2 (seen on page 30 in the textbook and recreated below), which method will perform best in the long run in terms of cumulative reward and probability of selecting the best action? How much better will it be? Express your answer quantitatively.</p>
+<section id="solution-2" class="level4" data-number="2.3.1">
+<h4 data-number="2.3.1" class="anchored" data-anchor-id="solution-2"><span class="header-section-number">2.3.1</span> Solution</h4>
+<p>The key observation to make is that both epsilon-greedy algorithms will eventually find the optimal action (this follows from the Kolmogorov 0-1 Law). Thus, in the long run, the epsilon-greedy algorithm with <span class="math inline">\(\epsilon = 0.1\)</span> will select the optimal action <span class="math inline">\(90\%\)</span> of the time. The epsilon-greedy algorithm with <span class="math inline">\(\epsilon = .01\)</span> will select the optimal action <span class="math inline">\(99\%\)</span> of the time, <span class="math inline">\(10\%\)</span> more frequently. Determining the actual long-term efficiency improvement would require knowing the distribution of each reward, but could otherwise be calculated.</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_steps <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>num_runs <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rewards <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        rewards[run, step] <span class="op">=</span> reward</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> action <span class="op">==</span> agent_run.q_star_means.argmax():</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            actions[run, step] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>greedy_scores_epsilon_000 <span class="op">=</span> np.mean(rewards, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>action_optimals_000 <span class="op">=</span> np.mean(actions, axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        rewards[run, step] <span class="op">=</span> reward</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> action <span class="op">==</span> agent_run.q_star_means.argmax():</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            actions[run, step] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>greedy_scores_epsilon_010 <span class="op">=</span> np.mean(rewards, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>action_optimals_010 <span class="op">=</span> np.mean(actions, axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.01</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        rewards[run, step] <span class="op">=</span> reward</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> action <span class="op">==</span> agent_run.q_star_means.argmax():</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>            actions[run, step] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>greedy_scores_epsilon_001 <span class="op">=</span> np.mean(rewards, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>action_optimals_001 <span class="op">=</span> np.mean(actions, axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="18">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>figs, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>raxs <span class="op">=</span> axs.ravel()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> raxs[<span class="dv">0</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ax.plot(greedy_scores_epsilon_000, color<span class="op">=</span><span class="st">'g'</span>, label<span class="op">=</span><span class="st">'$\epsilon$ = 0'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.plot(greedy_scores_epsilon_010, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'$\epsilon$ = 0.1'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ax.plot(greedy_scores_epsilon_001, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'$\epsilon$ = 0.01'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    title <span class="op">=</span> <span class="st">"Average Performance of Greedy Agent"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">"Steps"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">"Average Reward"</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> raxs[<span class="dv">1</span>]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>ax.plot(action_optimals_000, color<span class="op">=</span><span class="st">'g'</span>, label<span class="op">=</span><span class="st">'$\epsilon$ = 0'</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>ax.plot(action_optimals_010, color<span class="op">=</span><span class="st">'b'</span>, label<span class="op">=</span><span class="st">'$\epsilon$ = 0.1'</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>ax.plot(action_optimals_001, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'$\epsilon$ = 0.01'</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'{:,.0%}'</span>.<span class="bu">format</span>(x) <span class="cf">for</span> x <span class="kw">in</span> ax.get_yticks()])</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">#title = "Average Greediness of Greedy Agent",</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">"Steps"</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">"% Optimal Action"</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="figure-2.2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_2_files/figure-html/figure-2.2-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">A recreation of figure 2.2, showing average rewards over 2000 runs of different valued epsilon-greedy solvers</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-2.4" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="exercise-2.4"><span class="header-section-number">2.4</span> Exercise 2.4</h3>
+<p>If the step-size parameters, <span class="math inline">\(\alpha_n\)</span>, are not constant, then the estimate <span class="math inline">\(Q_n\)</span> is a weighted average of previously received rewards with a weighting different from that given by (2.6). What is the weighting on each prior reward for the general case, analogous to (2.6), in terms of the sequence of step-size parameters?</p>
+<p>For reference, eq. (2.6) is provided here.</p>
+<p><span class="math display">\[ Q_{n+1} = Q_n + \alpha\big[R_n - Q_n\big]\]</span> <span class="math display">\[=(1-\alpha)^n Q_1 + \sum_{i=1}^n \alpha(1-\alpha)^{n-i}R_i\]</span></p>
+<section id="solution-3" class="level4" data-number="2.4.1">
+<h4 data-number="2.4.1" class="anchored" data-anchor-id="solution-3"><span class="header-section-number">2.4.1</span> Solution</h4>
+<p>Let <span class="math inline">\(\{a_n\}\)</span> be a sequence of step-size parameters, such that <span class="math inline">\(Q_{n+1} = Q_n + \alpha_n\big[R_n - Q_n\big]\)</span>. Then</p>
+<p><span class="math inline">\(Q_{n+1} = \alpha_n R_n + (1-\alpha_n)Q_n\)</span> <br> <span class="math inline">\(\qquad = \alpha_n R_n + (1-\alpha_n)[\alpha_{n-1} R_{n-1} + (1-\alpha_{n-1})Q_{n-1}]\)</span> <br> <span class="math inline">\(\qquad = \alpha_n R_n + (1-\alpha_n)[\alpha_{n-1} R_{n-1} + (1-\alpha_{n-1})[\alpha_{n-2} R_{n-2} + (1-\alpha_{n-2})Q_{n-2}]]\)</span> <br> <span class="math inline">\(\qquad = \Pi_{i=1}^n (1-\alpha_i)Q_1 + \sum_{i=1}^n [\Pi_{j=i}^{n-1} (1-\alpha_{j})]\alpha_{i-1}R_{i-1} + \alpha_n R_n\)</span>.</p>
+</section>
+</section>
+<section id="exercise-2.5" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="exercise-2.5"><span class="header-section-number">2.5</span> Exercise 2.5</h3>
+<p>Design and conduct an experiment to demonstrate the diffculties that sample-average methods have for nonstationary problems. Use a modified version of the 10-armed testbed in which all the <span class="math inline">\(q_*(a)\)</span> start out equal and then take independent random walks (say by adding a normally distributed increment with mean zero and standard deviation 0.01 to all the <span class="math inline">\(q_*(a)\)</span> on each step). Prepare plots like Figure 2.2 for an action-value method using sample averages, incrementally computed, and another action-value method using a constant step-size parameter, <span class="math inline">\(\alpha\)</span> = 0.1. Use <span class="math inline">\(\epsilon\)</span> = 0.1 and longer runs, say of 10,000 steps.</p>
+<section id="solution-4" class="level4" data-number="2.5.1">
+<h4 data-number="2.5.1" class="anchored" data-anchor-id="solution-4"><span class="header-section-number">2.5.1</span> Solution</h4>
+<div class="cell" data-execution_count="43">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>num_steps <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>num_runs <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rewards <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>, reward_structure<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        rewards[run, step] <span class="op">=</span> reward</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> action <span class="op">==</span> agent_run.q_star_means.argmax():</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            actions[run, step] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>greedy_scores_sample_averages <span class="op">=</span> np.mean(rewards, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>action_optimals_sample_averages <span class="op">=</span> np.mean(actions, axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>, reward_structure<span class="op">=</span><span class="dv">1</span>, step_size<span class="op">=</span><span class="fl">.1</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        rewards[run, step] <span class="op">=</span> reward</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> action <span class="op">==</span> agent_run.q_star_means.argmax():</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            actions[run, step] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>greedy_scores_constant_step <span class="op">=</span> np.mean(rewards, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>action_optimals_constant_step <span class="op">=</span> np.mean(actions, axis <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="44">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>figs, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>raxs <span class="op">=</span> axs.ravel()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> raxs[<span class="dv">0</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ax.plot(greedy_scores_sample_averages, color<span class="op">=</span><span class="st">'g'</span>, label<span class="op">=</span><span class="st">'sample-average method'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ax.plot(greedy_scores_constant_step, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'constant-step method'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    title <span class="op">=</span> <span class="st">"Comparison of Sample-Average vs Constant-Step Methods with Nonstationary Rewards"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">"Steps"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">"Average Reward"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> raxs[<span class="dv">1</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>ax.plot(action_optimals_sample_averages, color<span class="op">=</span><span class="st">'g'</span>, label<span class="op">=</span><span class="st">'sample-average method'</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>ax.plot(action_optimals_constant_step, color<span class="op">=</span><span class="st">'r'</span>, label<span class="op">=</span><span class="st">'constant-step method'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'{:,.0%}'</span>.<span class="bu">format</span>(x) <span class="cf">for</span> x <span class="kw">in</span> ax.get_yticks()])</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">#title = "Average Greediness of Greedy Agent",</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    xlabel <span class="op">=</span> <span class="st">"Steps"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    ylabel <span class="op">=</span> <span class="st">"Optimal Action"</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="solution-2.5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="chapter_2_files/figure-html/solution-2.5-output-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Using <span class="math inline">\(\epsilon\)</span>-greedy methods with sample-average approaches underperform compared to constant-step methods on nonstationary reward problems.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
+<p>Sutton, R. S., Barto, A. G. (2018 ). Reinforcement Learning: An Introduction. The MIT Press.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

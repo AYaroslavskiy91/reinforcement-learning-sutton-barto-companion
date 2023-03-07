@@ -1,2 +1,2 @@
 # reinforcement_learning_sutton_barto_companion
-A companion for exercise solutions to serve as a read-along for Reinforcement Learning, by Sutton and Barton
+A companion for exercise solutions to serve as a read-along for Reinforcement Learning, by Sutton and Barton. This guide is meant to serve as additional material to assist those working through this text. Solutions to select problems exist and are detailed within. In order to address the programming exercises, RL solvers are created and utilized within. These are also used to recreate relevant plots found within the text.
