@@ -158,19 +158,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="multi-armed-bandits" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="multi-armed-bandits"><span class="header-section-number">1.1</span> Multi-armed Bandits</h3>
 <p>This chapter aims to discuss the fundamental RL problem, called the ‘Multi-armed Bandit’, a reference to a slot machine with multiple levers. The goal here is to discuss and examine techniques for solving the problem in which a fixed number of decisions at every time interval combine to a final reward, which we aim to maximize.</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="46">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#some imports, including a user-defined solver</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> GreedyAgent</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(GreedyAgent)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> GreedyAgent <span class="im">import</span> GreedyAgent</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -197,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In <span class="math inline">\(\epsilon\)</span>-greedy action selection, for the case of two actions and <span class="math inline">\(\epsilon=.5\)</span>, what is the probability that the greedy action is selected?</p>
 <section id="solution" class="level4" data-number="2.1.1">
 <h4 data-number="2.1.1" class="anchored" data-anchor-id="solution"><span class="header-section-number">2.1.1</span> Solution</h4>
-<p>For this, we use law of total probablity. Let <span class="math inline">\(a_g\)</span> be the event that the greedy action is selected, and let <span class="math inline">\(a_\epsilon\)</span> be the event that the action is selected at random. Then <span class="math display">\[ P(a_g) = P(a_g|a_\epsilon)\cdot P(a_\epsilon) + P(a_g|a_\epsilon ')\cdot P(a_\epsilon')\]</span> <span class="math display">\[ = \frac{1}{2}\cdot\frac{1}{2}+1\cdot\frac{1}{2} = \frac14\]</span></p>
+<p>For this, we use law of total probablity. Let <span class="math inline">\(a_g\)</span> be the event that the greedy action is selected, and let <span class="math inline">\(a_\epsilon\)</span> be the event that the action is selected at random. Then <span class="math display">\[ P(a_g) = P(a_g|a_\epsilon)\cdot P(a_\epsilon) + P(a_g|a_\epsilon ')\cdot P(a_\epsilon')\]</span> <span class="math display">\[ = \frac{1}{2}\cdot\frac{1}{2}+1\cdot\frac{1}{2} = \frac34\]</span></p>
 </section>
 </section>
 <section id="exercise-2.2" class="level3" data-number="2.2">
@@ -234,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAxgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
@@ -247,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
@@ -260,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.01</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.01</span>)</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
@@ -340,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>, reward_structure<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>, reward_structure<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
@@ -354,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> np.zeros((num_runs, num_steps))</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> run <span class="kw">in</span> (<span class="bu">range</span>(num_runs)):</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent.GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>, reward_structure<span class="op">=</span><span class="dv">1</span>, step_size<span class="op">=</span><span class="fl">.1</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    agent_run <span class="op">=</span> GreedyAgent(<span class="dv">0</span>, <span class="dv">10</span>, epsilon <span class="op">=</span> <span class="fl">.1</span>, reward_structure<span class="op">=</span><span class="dv">1</span>, step_size<span class="op">=</span><span class="fl">.1</span>)</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    np.random.seed(run)</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        action, reward <span class="op">=</span> agent_run.agent_step()</span>
