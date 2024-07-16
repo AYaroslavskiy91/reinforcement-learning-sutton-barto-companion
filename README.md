@@ -5,3 +5,5 @@ A companion for exercise solutions to serve as a read-along for Reinforcement Le
 
 ## Reading guide
 The reader (henceforth refered to as "you") is strongly encouraged to attempt the exercises on your own before browsing solutions, afterwhich there are multiple ways to read through these docs. The notebook and python files are available, though you are encouraged to explore the pdf and html versions. Clone the repo in order to properly render the html version, which is the recommended version.
+
+## Currently paused in pursuit of more interesting projects
